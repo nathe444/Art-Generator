@@ -162,13 +162,22 @@ export default function Home() {
                     alt="Generated Art"
                     className="w-full h-auto rounded-lg mb-6"
                   />
-                  <button
-                    className="w-full bg-green-700 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200"
-                    onClick={() => window.open(generatedImage, "_blank")}
-                  >
-                    <Upload className="inline-block mr-2 h-5 w-5" />
-                    Open Full Size
-                  </button>
+                  <div className="flex space-x-2">
+                    <button
+                      className="w-full bg-green-700 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200"
+                      onClick={() => window.open(generatedImage, "_blank")}
+                    >
+                      <Upload className="inline-block mr-2 h-5 w-5" />
+                      Open Full Size
+                    </button>
+                    <a
+                      href={generatedImage}
+                      download="generated-art.png"
+                      className="w-full bg-yellow-500 text-white py-3 px-4 rounded-lg font-medium hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 transition duration-200 text-center"
+                    >
+                      Download Image
+                    </a>
+                  </div>
                 </>
               ) : (
                 <div className="w-full h-full min-h-[16rem] bg-gray-800 rounded-lg flex items-center justify-center">
