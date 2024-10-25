@@ -12,10 +12,10 @@ export async function GET(req) {
 
   // Create directories if they don't exist
   if (!fs.existsSync(downloadFolder)) {
-    fs.mkdirSync(downloadFolder);
+    fs.mkdirSync(downloadFolder , { recursive: true });
   }
   if (!fs.existsSync(metadataFolder)) {
-    fs.mkdirSync(metadataFolder);
+    fs.mkdirSync(metadataFolder , { recursive: true });
   }
 
   console.log("Starting the scraping process with Puppeteer...");
@@ -65,7 +65,7 @@ export async function GET(req) {
 
         // Create directory for artist
         if (!fs.existsSync(artistDir)) {
-          fs.mkdirSync(artistDir);
+          fs.mkdirSync(artistDir , { recursive: true });
         }
 
         // Save artist metadata to JSON
@@ -79,7 +79,6 @@ export async function GET(req) {
 // }
 
    await downloadImagesInParallel([...artistImages, ...allWorksImages], artistDir, 10); // Batch size of 10
-
 
 
         // Save the HTML page for the artist
